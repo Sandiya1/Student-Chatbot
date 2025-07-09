@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}?v=1">
+
+
+</head>
+<body>
+    <h2>Welcome, {{ student.user.username }}</h2>
+    <p><strong>Student ID:</strong> {{ student.student_id }}</p>
+    <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Total Fees:</strong> ₹{{ student.total_fees }}</p>
+    <p><strong>Pending Fees:</strong> ₹{{ student.pending_fees }}</p>
+
+    <hr>
+    <p><a href="{% url 'chat' %}">🧠 Ask Chatbot</a></p>
+    <p><a href="{% url 'update-profile' %}">✏️ Update Profile</a></p>
+    <p><a href="{% url 'logout' %}">🚪 Logout</a></p>
+</body>
+</html>

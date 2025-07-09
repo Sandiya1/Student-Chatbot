@@ -1,0 +1,15 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+  <h1>📥 Import Excel Data</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="excel_file" required><br><br>
+    <button type="submit" class="default">Upload and Import</button>
+  </form>
+
+  <p style="margin-top: 20px;">
+    <a href="{% static 'sample_data.xlsx' %}" download>📄 Download Excel Template</a>
+  </p>
+{% endblock %}

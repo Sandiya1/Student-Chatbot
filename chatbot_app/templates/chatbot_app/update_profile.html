@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Profile</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <h2>Update Your Profile</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ student.email }}"><br><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" value="{{ student.dob }}"><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <p><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
+</body>
+</html>

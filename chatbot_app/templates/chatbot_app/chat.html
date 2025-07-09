@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Chatbot</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}?v=3">
+</head>
+<body>
+    <h2>🎓 Ask the Student Chatbot</h2>
+
+    <div class="chat-container">
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="message" placeholder="Type your question here..." required>
+            <button type="submit">Send</button>
+        </form>
+
+        {% if response %}
+            <div class="bot-response">
+                <strong></strong><br>
+                {{ response|safe }}
+            </div>
+        {% endif %}
+
+        <!-- Quick Buttons BELOW the chat -->
+        <form method="post" class="quick-buttons">
+            {% csrf_token %}
+            <button name="message" value="show my marks">🎯 Marks</button>
+            <button name="message" value="show my fees">💸 Fees</button>
+            <button name="message" value="show my personal info">👤Personal Info</button>
+            <button name="message" value="show my attendance">🕒 Attendance</button>
+        </form>
+    </div>
+
+    <p style="text-align:center;"><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Data Entry</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    
+    <h2>Admin Panel - Add Students, Subjects, and Marks</h2>
+
+    <h3>➕ Add Student</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ student_form.as_p }}
+        <button type="submit" name="submit_student">Save Student</button>
+    </form>
+
+    <h3>➕ Add Subject</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ subject_form.as_p }}
+        <button type="submit" name="submit_subject">Save Subject</button>
+    </form>
+
+    <h3>➕ Add Exam Mark</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ exam_form.as_p }}
+        <button type="submit" name="submit_exam">Save Mark</button>
+    </form>
+
+    <p><a href="{% url 'logout' %}">🚪 Logout</a></p>
+</body>
+</html>
